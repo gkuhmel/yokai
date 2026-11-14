@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Yōkai">
+<meta name="theme-color" content="#8fbdd3">
+<title>La Route des Yōkai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="fit"><div id="app">
+
+  <section id="home" class="screen">
+    <div class="intro">
+      <div class="logo"><div class="disc"></div><h1>La Route des Yōkai</h1></div>
+      <p class="tag">Un duel de clans où l'on capture des esprits, au rythme du jour et de la nuit.</p>
+      <button class="ghost" id="home-rules">Comment on joue ?</button>
+      <p class="proto">Prototype : 2 clans, 60 cartes, contre l'ordinateur.</p>
+    </div>
+    <div class="choose">
+      <p class="pick">Choisis ton clan</p>
+      <div class="clans">
+        <button class="clan c-sam" data-clan="sam" id="pick-sam">
+          <span class="big">🏯</span><b>Samouraï</b>
+          <span>Costaud. Sa <strong>Garde</strong> reste d'un tour à l'autre.</span><em>☀️ Fort le jour</em>
+        </button>
+        <button class="clan c-nin" data-clan="nin" id="pick-nin">
+          <span class="big">🥷</span><b>Ninja</b>
+          <span>Rapide. Ses cartes ⏩ s'enchaînent, et à la 3ᵉ ses <strong>Combos</strong> partent.</span><em>🌙 Fort la nuit</em>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section id="game" class="screen" hidden>
+    <aside id="left">
+      <div class="pl" id="opp"></div>
+      <div id="mid"></div>
+      <div class="pl" id="me"></div>
+    </aside>
+    <main id="center">
+      <div class="row" id="rowA">
+        <div class="grp"><label>Yōkai sauvages</label><div class="cards" id="wild"></div></div>
+        <div class="grp"><label>Marché</label><div class="cards" id="market"></div></div>
+      </div>
+      <div class="row" id="rowB">
+        <div class="grp"><label>Mon échoppe</label><div class="cards" id="shop"></div></div>
+        <div class="grp" id="tablegrp"><label id="table-lbl">Cartes jouées</label><div class="cards" id="table"></div></div>
+      </div>
+      <div class="grp" id="handgrp"><label id="hand-lbl">Ma main</label><div id="hand"></div></div>
+    </main>
+    <aside id="right">
+      <div id="info"></div>
+      <div id="actbar"></div>
+      <div id="res">
+        <div id="r-or"><b>0</b><span>🪙 pièces</span></div>
+        <div id="r-fo"><b>0</b><span>⚔️ force</span></div>
+        <div id="r-pl"><b>0</b><span>🃏 à jouer</span></div>
+      </div>
+      <button id="end-turn">Fin du tour</button>
+    </aside>
+  </section>
+
+  <div id="rules" class="overlay" hidden>
+    <div class="sheet">
+      <h2>Comment on joue</h2>
+      <ol>
+        <li>Tu as <b>5 cartes</b> en main et tu peux en jouer <b>3 par tour</b> : choisis bien, les autres partent à la défausse. Touche une carte pour la lire, puis encore une fois pour la jouer.</li>
+        <li>🪙 Les <b>pièces</b> achètent des cartes, dans ton échoppe ou au marché. Elles vont dans ta défausse et reviendront dans ta main.</li>
+        <li>⚔️ La <b>force</b> capture un yōkai sauvage, qui rejoint ton deck. La force qui reste frappe l'adversaire à la fin du tour.</li>
+        <li>🛡️ Le <b>bouclier</b> bloque les coups. L'armure disparaît à ton prochain tour, la Garde reste.</li>
+        <li>⏩ Une carte avec ce signe te laisse en jouer une de plus. 🔗 Un <b>Combo</b> se déclenche si la carte est au moins ta 3ᵉ du tour.</li>
+        <li>☀️🌙 Deux tours de <b>jour</b>, deux tours de <b>nuit</b>. La nuit, un yōkai sauvage demande 2 ⚔️ de plus, mais te donne 3 🪙.</li>
+        <li>Le premier à 0 ❤️ a perdu.</li>
+      </ol>
+      <div class="btns"><button class="btn" id="rules-ok">Compris</button><button class="btn alt" id="rules-quit" hidden>Quitter la partie</button></div>
+    </div>
+  </div>
+  <div id="end" class="overlay" hidden><div class="sheet"><h2 id="end-t"></h2><p id="end-p"></p>
+    <div class="btns"><button class="btn" id="end-again">Rejouer</button><button class="btn alt" id="end-home">Changer de clan</button></div></div></div>
+
+</div></div>
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>

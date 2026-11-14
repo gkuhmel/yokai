@@ -1,0 +1,19 @@
+{
+  "name": "yokai",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview --host",
+    "sim": "node scripts/sim.mjs",
+    "cf:dev": "vite build && wrangler dev",
+    "deploy": "vite build && wrangler deploy"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0",
+    "vite-plugin-singlefile": "^2.0.0",
+    "wrangler": "^4.158.0"
+  }
+}
